@@ -11,10 +11,10 @@
 记录深度学习实践项目，涵盖基础模型训练、数据集处理及常用框架应用，帮助理解深度学习技术。
 
 #### 项目列表
-| 项目名称                    | 描述                              | 难度                                        | 代码        |
-|-------------------------|---------------------------------|-------------------------------------------|-----------|
-| 1_fcnet_CIFAR-10_pytorch | 由全连接网络+CIFAR-10数据集+Pytorch的入门项目 | <span style="color: orange;">★☆☆☆☆</span> | [click](https://gitee.com/mikle66770/deep-learning-hands-on-program/tree/master/1_fcnet_CIFAR-10_pytorch) |
-| ......                  | ...                             | ...                                       | ...       |
+| 项目名称                    | 描述                              | 难度（⭐⭐⭐⭐⭐） | 代码        |
+|-------------------------|---------------------------------|-------|-----------|
+| 1_fcnet_CIFAR-10_pytorch | 由全连接网络+CIFAR-10数据集+Pytorch的入门项目 | ⭐     | [click](https://gitee.com/mikle66770/deep-learning-hands-on-program/tree/master/1_fcnet_CIFAR-10_pytorch) |
+| ......                  | ...                             | ...   | ...       |
 
 #### 使用说明
 
