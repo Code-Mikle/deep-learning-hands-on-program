@@ -1,37 +1,24 @@
 # 深度学习练手项目
 
+<p style="text-align: center">
+<img src="https://img.shields.io/badge/language-%20Python%20-%20%236495ED?style=flat&logo=python">
+<img src="https://img.shields.io/badge/framework%20-%20Pytorch%20-%20%23FF8C00?style=flat&logo=pytorch">
+<img src="https://img.shields.io/badge/framework%20-%20Tensorflow%20-%20%23FF8C00?style=flat&logo=tensorflow">
+<img src="https://img.shields.io/badge/license%20-%20Apache%20-%20%09%237CFC00?style=flat&logo=apache">
+</p>
+
 #### 介绍
 记录深度学习实践项目，涵盖基础模型训练、数据集处理及常用框架应用，帮助理解深度学习技术。
 
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### 项目列表
+| 项目名称                    | 描述                              | 难度                                        | 代码        |
+|-------------------------|---------------------------------|-------------------------------------------|-----------|
+| 1_fcnet_CIFAR-10_pytorch | 由全连接网络+CIFAR-10数据集+Pytorch的入门项目 | <span style="color: orange;">★☆☆☆☆</span> | [click](https://gitee.com/mikle66770/deep-learning-hands-on-program/tree/master/1_fcnet_CIFAR-10_pytorch) |
+| ......                  | ...                             | ...                                       | ...       |
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+使用如下命令即可将该项目克隆到本地。
+```bash
+git clone https://gitee.com/mikle66770/deep-learning-hands-on-program.git
+```

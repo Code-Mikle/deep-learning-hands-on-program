@@ -74,5 +74,3 @@ cifar10-classification/
 ├── model.py                 # 定义模型架构
 └── README.md                # 项目说明文档
 ```
-
-## 许可证
