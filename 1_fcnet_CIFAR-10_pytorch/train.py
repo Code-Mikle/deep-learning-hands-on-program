@@ -1,6 +1,8 @@
 """
     训练代码
 """
+from platform import architecture
+
 import torch
 from torch import nn
 from data import train_dataloader, test_dataloader
@@ -8,6 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 from model import Classifier
 from conf import *
 import pandas as pd
+import wandb
 
 
 def train(_train_dataloader, _model, _loss_fn, _optimizer):
@@ -35,7 +38,6 @@ def test(_test_dataloader, _model, _loss_fn):
     _model.eval()
     with torch.no_grad():
         for batch_idx, (input_data, target_data) in enumerate(_test_dataloader):
-
             input_data, target_data = input_data.to(device), target_data.to(device)
 
             output = _model(input_data)
@@ -48,6 +50,20 @@ def test(_test_dataloader, _model, _loss_fn):
 
 
 if __name__ == '__main__':
+    wandb.init(
+        # set the wandb project where this run will be logged
+        project="deep-learning-hands-on-program",
+
+        # track hyperparameters and run metadata
+        config={
+            "learning_rate": 1e-3,
+            "architecture": "FCNet",
+            "dataset": "CIFAR10",
+            "epochs": 5
+        }
+
+    )
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print("device: ", device)
 
@@ -70,21 +86,27 @@ if __name__ == '__main__':
     correct_list = []
 
     for epoch in range(epochs):
-        print(f"Epoch {epoch+1}\n" + "--"*20)
+        print(f"Epoch {epoch + 1}\n" + "--" * 20)
         train(train_dataloader, model, loss_fn, optimizer)
         test_loss, correct = test(test_dataloader, model, loss_fn)
+
+        # log metrics to wandb
+        wandb.log({"acc": correct, "loss": test_loss})
+
+        # log metrics to tensorboard
         epoch_list.append(epoch)
         test_loss_list.append(test_loss)
         correct_list.append(correct)
-
         writer.add_scalar('test_loss', test_loss, epoch)
 
+    # [optional] finish the wandb run, necessary in notebooks
+    wandb.finish()
 
     # test_loss_numpy = np.array(test_loss_list)
     # accuracy_numpy = np.array(correct_list)
     # np.savetxt((result_path + 'test_loss.csv'), test_loss_numpy, fmt='%.6f')
     # np.savetxt(result_path + 'accuracy.csv', accuracy_numpy, fmt='%.4f')
-    loss_accuracy_dict = {'epoch':epoch_list, 'loss':test_loss_list, 'accuracy':correct_list}
+    loss_accuracy_dict = {'epoch': epoch_list, 'loss': test_loss_list, 'accuracy': correct_list}
     df = pd.DataFrame(loss_accuracy_dict).to_csv(result_path + 'loss_accuracy.csv', index=False)
 
     # save parameters
