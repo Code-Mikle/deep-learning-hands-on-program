@@ -11,6 +11,9 @@ __pycache__/
 /runs
 # wandb
 /wandb
+# result
+/result
+
 
 # C extensions
 *.so
