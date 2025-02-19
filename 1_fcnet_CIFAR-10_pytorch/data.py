@@ -10,6 +10,7 @@ from omegaconf import OmegaConf
 conf_data = OmegaConf.load('config/config.yaml')
 OmegaConf.to_yaml(conf_data, resolve=True)
 
+
 training_data = datasets.CIFAR10(root=conf_data.dataset_path, train=True, download=True, transform=ToTensor())
 testing_data = datasets.CIFAR10(root=conf_data.dataset_path, train=False, download=True, transform=ToTensor())
 
