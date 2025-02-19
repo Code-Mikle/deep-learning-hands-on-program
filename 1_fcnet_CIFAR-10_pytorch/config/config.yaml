@@ -1,0 +1,12 @@
+# 参数配置文件
+
+# 存放数据集的相对路径
+dataset_path: 'dataset'
+
+# 训练结果（如：存放损失值的文件、存放模型参数的文件等等）的保存位置
+result_path: 'result/'
+
+hyper_parameter:
+    learning_rate: 1e-3
+    batch_size: 64
+    epochs: 5

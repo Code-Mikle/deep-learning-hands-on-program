@@ -8,9 +8,9 @@ from torch import nn
 from data import train_dataloader, test_dataloader
 from torch.utils.tensorboard import SummaryWriter
 from model import Classifier
-from conf import *
 import pandas as pd
 import wandb
+from omegaconf import OmegaConf
 
 
 def train(_train_dataloader, _model, _loss_fn, _optimizer):
@@ -27,7 +27,7 @@ def train(_train_dataloader, _model, _loss_fn, _optimizer):
         _optimizer.step()
 
         if batch_idx % 100 == 0:
-            loss, current = loss.item(), batch_idx * batch_size + len(input_data)
+            loss, current = loss.item(), batch_idx * conf.hyper_parameter.batch_size + len(input_data)
             print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
 
 
@@ -64,6 +64,10 @@ if __name__ == '__main__':
 
     )
 
+    conf = OmegaConf.load("config/config.yaml")
+    OmegaConf.to_yaml(conf, resolve=True)
+
+
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print("device: ", device)
 
@@ -79,13 +83,13 @@ if __name__ == '__main__':
 
     loss_fn = nn.CrossEntropyLoss()
 
-    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+    optimizer = torch.optim.SGD(model.parameters(), lr=conf.hyper_parameter.learning_rate)
 
     epoch_list = []
     test_loss_list = []
     correct_list = []
 
-    for epoch in range(epochs):
+    for epoch in range(conf.hyper_parameter.epochs):
         print(f"Epoch {epoch + 1}\n" + "--" * 20)
         train(train_dataloader, model, loss_fn, optimizer)
         test_loss, correct = test(test_dataloader, model, loss_fn)
@@ -107,21 +111,21 @@ if __name__ == '__main__':
     # np.savetxt((result_path + 'test_loss.csv'), test_loss_numpy, fmt='%.6f')
     # np.savetxt(result_path + 'accuracy.csv', accuracy_numpy, fmt='%.4f')
     loss_accuracy_dict = {'epoch': epoch_list, 'loss': test_loss_list, 'accuracy': correct_list}
-    df = pd.DataFrame(loss_accuracy_dict).to_csv(result_path + 'loss_accuracy.csv', index=False)
+    df = pd.DataFrame(loss_accuracy_dict).to_csv(conf.result_path + 'loss_accuracy.csv', index=False)
 
     # save parameters
-    torch.save(model.state_dict(), result_path + 'parameters.pt')
+    torch.save(model.state_dict(), conf.result_path + 'parameters.pt')
     # save model and parameters
-    torch.save(model, result_path + 'model_and_parameters.pt')
+    torch.save(model, conf.result_path + 'model_and_parameters.pt')
 
     # save checkpoint
     torch.save({
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
-    }, result_path + 'checkpoint.tar')
+    }, conf.result_path + 'checkpoint.tar')
 
     torch.save({
         'model_state_dict': model.state_dict(),
         'optimizer_state_dict': optimizer.state_dict(),
-    }, result_path + 'checkpoint.pt')
+    }, conf.result_path + 'checkpoint.pt')
     print("Got it!!!")
