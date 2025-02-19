@@ -3,15 +3,15 @@
 """
 import matplotlib.pyplot as plt
 import torch
-from omegaconf import OmegaConf
+from config.config import conf
 import pandas as pd
 from model import Classifier
 
-conf_test = OmegaConf.load('config/config.yaml')
-OmegaConf.to_yaml(conf_test, resolve=True)
+# conf_test = OmegaConf.load('config/config.yaml')
+# OmegaConf.to_yaml(conf_test, resolve=True)
 
 def plot_loss_accuracy_from_csv():
-    air_quality = pd.read_csv(conf_test.result_path + "loss_accuracy.csv", index_col=0)
+    air_quality = pd.read_csv(conf.result_path + "loss_accuracy.csv", index_col=0)
     print(air_quality.head())
     air_quality['accuracy'].plot()
     plt.ylabel('Accuracy')

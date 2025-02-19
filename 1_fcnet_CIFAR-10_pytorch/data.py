@@ -5,17 +5,17 @@
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 from torch.utils.data import DataLoader
-from omegaconf import OmegaConf
+from config.config import conf
 
-conf_data = OmegaConf.load('config/config.yaml')
-OmegaConf.to_yaml(conf_data, resolve=True)
+# conf_data = OmegaConf.load('config/config.yaml')
+# OmegaConf.to_yaml(conf_data, resolve=True)
 
 
-training_data = datasets.CIFAR10(root=conf_data.dataset_path, train=True, download=True, transform=ToTensor())
-testing_data = datasets.CIFAR10(root=conf_data.dataset_path, train=False, download=True, transform=ToTensor())
+training_data = datasets.CIFAR10(root=conf.dataset_path, train=True, download=True, transform=ToTensor())
+testing_data = datasets.CIFAR10(root=conf.dataset_path, train=False, download=True, transform=ToTensor())
 
-train_dataloader = DataLoader(training_data, batch_size=conf_data.hyper_parameter.batch_size, shuffle=True)
-test_dataloader = DataLoader(testing_data, batch_size=conf_data.hyper_parameter.batch_size, shuffle=True)
+train_dataloader = DataLoader(training_data, batch_size=conf.hyper_parameter.batch_size, shuffle=True)
+test_dataloader = DataLoader(testing_data, batch_size=conf.hyper_parameter.batch_size, shuffle=True)
 
 if __name__ == '__main__':
     # labels_map = {

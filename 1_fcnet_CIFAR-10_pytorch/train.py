@@ -10,7 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 from model import Classifier
 import pandas as pd
 import wandb
-from omegaconf import OmegaConf
+from config.config import conf
 
 
 def train(_train_dataloader, _model, _loss_fn, _optimizer):
@@ -64,8 +64,8 @@ if __name__ == '__main__':
 
     )
 
-    conf = OmegaConf.load("config/config.yaml")
-    OmegaConf.to_yaml(conf, resolve=True)
+    # conf = OmegaConf.load("config/config.yaml")
+    # OmegaConf.to_yaml(conf, resolve=True)
 
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
