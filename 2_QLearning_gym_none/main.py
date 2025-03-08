@@ -49,7 +49,7 @@ def train(_epsilon, _epsilon_decay, _min_epsilon, _alpha, _gamma, _Q, _episodes)
             print(f"Episode: {episode + 1}, Total Reward: {total_reward}, Epsilon: {epsilon:.3f}")
 
         # 保存Q-table
-        np.save('experiments/q_table_1.npy', _Q)
+        np.save('experiments/q_table_2.npy', _Q)
 
 
 # 输出Q表的内容
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
     # 参数设置
     alpha = 0.1  # 学习率
-    gamma = 0.99  # 折扣因子
+    gamma = 1  # 折扣因子0.99
     epsilon = 1.0  # 初始探索率
     epsilon_decay = 0.995  # 探索率衰减率
     min_epsilon = 0.01  # 最小探索率
@@ -119,6 +119,6 @@ if __name__ == '__main__':
     Q = np.zeros((n_states, n_actions))
 
     train(epsilon, epsilon_decay, min_epsilon, alpha, gamma, Q, episodes)
-    # Q = np.load('experiments/q_table.npy')
+    # Q = np.load('experiments/q_table_1.npy')
     show_Q_table(Q)
     test(Q)

@@ -14,6 +14,8 @@
 | 项目名称                    | 描述                              | 难度(1-5) | 代码        |
 |-------------------------|---------------------------------|---------|-----------|
 | 1_fcnet_CIFAR-10_pytorch | 由全连接网络+CIFAR-10数据集+Pytorch的入门项目 | ⭐       | [click](https://gitee.com/mikle66770/deep-learning-hands-on-program/tree/master/1_fcnet_CIFAR-10_pytorch) |
+| 2_QLearning_gym_none     | 基本的Q-learning方法                 | ⭐       |                                                                                                           |
+| 3_DQN_gym_pytorch        | DQN的基础实现，pytorch版，不包括记忆回放 | ⭐       |                                                                                                           |
 | ......                  | ...                             | ...     | ...       |
 
 #### 使用说明
