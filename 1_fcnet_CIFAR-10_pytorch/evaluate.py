@@ -23,11 +23,11 @@ def plot_loss_accuracy_from_csv():
 
 def load_parameters():
     _model = Classifier()
-    _model.load_state_dict(torch.load(conf_test.result_path + 'parameter.pt', weights_only=True))
+    _model.load_state_dict(torch.load(conf.result_path + 'parameter.pt', weights_only=True))
 
 
 def load_model_parameters():
-    _model = torch.load(conf_test.result_path + 'model_and_parameters.pt', weights_only=True, map_location=torch.device('cuda'))
+    _model = torch.load(conf.result_path + 'model_and_parameters.pt', weights_only=True, map_location=torch.device('cuda'))
 
 
 if __name__ == '__main__':

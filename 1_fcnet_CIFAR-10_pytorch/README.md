@@ -36,7 +36,7 @@ pip install torch torchvision matplotlib tensorboard
 ## 模型训练
 要开始训练模型，请执行如下命令：
 ```bash
-python train.py --logdir=runs
+python train.py
 ```
 
 参数说明：
@@ -47,15 +47,12 @@ python train.py --logdir=runs
 训练完成后，可以使用 evaluate.py 脚本来测试模型性能：
 
 ```bash
-python evaluate.py --model_path=models/best_model.pth
+python evaluate.py
 ```
-
-参数说明：
-- `--model_path`: 训练好的模型权重文件路径。
 
 
 ## 使用方法
-1.克隆仓库到本地。  
+1.克隆仓库到本地。`git clone https://github.com/Code-Mikle/deep-learning-hands-on-program.git`  
 2.根据“环境配置”部分安装必要的库。  
 3.运行训练脚本：`python train.py`。  
 4.查看 TensorBoard 结果：`tensorboard --logdir=runs`。  
@@ -66,9 +63,12 @@ python evaluate.py --model_path=models/best_model.pth
 ```text
 cifar10-classification/
 │
-├── data/                    # 数据存放目录
-├── models/                  # 模型权重存放目录
+├── config/                  # 配置文件
+├── dataset/                 # 数据存放目录
+├── imgs/                    # 图片文件
+├── result/                  # 模型权重以及网络训练结果存放目录
 ├── runs/                    # TensorBoard 日志存放目录
+├── data.py                  # 加载数据集脚本
 ├── train.py                 # 训练脚本
 ├── evaluate.py              # 评估脚本
 ├── model.py                 # 定义模型架构
