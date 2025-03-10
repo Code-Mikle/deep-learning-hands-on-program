@@ -68,7 +68,7 @@ def train(_epsilon, _epsilon_decay, _min_epsilon, _alpha, _gamma, _q_network, _e
             print(f"Episode: {episode + 1}, Total Reward: {total_reward}, Epsilon: {epsilon:.3f}")
 
           # 保存Q-table
-        # np.save('experiments/q_table_1.npy', _Q)
+        # np.save('experiment_results/q_table_1.npy', _Q)
 
 def to_one_hot(i, n_classes=None):
     a = np.zeros(n_classes, dtype=np.int64)

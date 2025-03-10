@@ -20,20 +20,67 @@ numpy-1.26.4
 pandas-2.2.3
 ```
 
-## 模型训练及测试
+## 模型训练
+
+### DQN
+
+```bash
+python DQN.py
 ```
-python main.py
+
+### Double DQN
+
+```bash
+python Double_DQN.py
+```
+
+### Dueling DQN
+
+```bash
+python Dueling_DQN.py
 ```
 
 ## 测试结果
 
+### DQN
 
+```bash
+python DQN.py target=test_model
+```
+参数：
+- target: test_model表示进行测试
+
+待添加测试图表！！！！！！！！！！！！！！！！！！
+
+### Double DQN
+
+```bash
+python Double_DQN.py target=test_model
+```
+参数：
+- target: test_model表示进行测试
+
+### Dueling DQN
+
+```bash
+python src/Dueling_DQN.py target=test_model
+```
+参数：
+- target: test_model表示进行测试
 
 ## 文件结构
 ```text
 2_QLearning_gym_none/
 │
-├── assets/            # 资源文件夹
-├── experiments/       # 实验结果
-└── main.py/           # 训练脚本
+├── assets/                  # 资源文件夹
+│   └── imgs/                # 图片资源
+├── logs/                    # 训练过程日志、结果图表等
+│   ├── tensorboard/         # tensorboard 日志
+│   ├── model_save/          # 训练好的模型权重
+│   └── experiment_results/  # 实验结果
+├── src/                     # 源代码
+│   ├── DQN.py               # DQN训练
+│   ├── Double_DQN.py        # Double_DQN训练
+│   └── Dueling_DQN.py       # Dueling_DQN训练
+└── README.md                # 项目介绍
 ```

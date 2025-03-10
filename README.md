@@ -11,12 +11,16 @@
 记录深度学习实践项目，涵盖基础模型训练、数据集处理及常用框架应用，帮助理解深度学习技术。
 
 #### 项目列表
-| 项目名称                    | 描述                              | 难度(1-5) | 代码                                  |
-|-------------------------|---------------------------------|---------|-------------------------------------|
-| 1_fcnet_CIFAR-10_pytorch | 由全连接网络+CIFAR-10数据集+Pytorch的入门项目 | ⭐       | [click](./1_fcnet_CIFAR-10_pytorch) |
-| 2_QLearning_gym_none     | 基本的Q-learning方法                 | ⭐       | [click](./2_QLearning_gym_none)     |
-| 3_DQN_gym_pytorch        | DQN的基础实现，pytorch版，不包括记忆回放 | ⭐       | [click](./3_DQN_gym_pytorch)        |
-| ......                  | ...                             | ...     | ...                                 |
+| 项目名称                       | 描述                                 | 难度(1-5) | 代码                                    |
+|----------------------------|------------------------------------|-------|---------------------------------------|
+| 1_fcnet_CIFAR-10_pytorch   | 由全连接网络+CIFAR-10数据集+Pytorch的入门项目    | ⭐     | [click](./1_fcnet_CIFAR-10_pytorch)   |
+| 2_QLearning_gym_none       | 基本的Q-learning方法                    | ⭐     | [click](./2_QLearning_gym_none)       |
+| 3_DQN_gym_pytorch          | DQN、Double DQN、Dueling DQN，不包括记忆回放 | ⭐     | [click](./3_DQN_gym_pytorch)          |
+| 4_PG_gym_pytorch           |                                    | ⭐     | [click](./4_PG_gym_pytorch)           |
+| 5_Actor_Critic_gym_pytorch |                                    | ⭐     | [click](./5_Actor_Critic_gym_pytorch) |
+| 6_PPO_gym_pytorch          |                                    | ⭐     | [click](./6_PPO_gym_pytorch)          |
+| 7_DDPG_gym_pytorch         |                                    | ⭐     | [click](./7_DDPG_gym_pytorch)                           |
+| ......                     | ...                                | ...   | ...                                   |
 
 #### 使用说明
 
